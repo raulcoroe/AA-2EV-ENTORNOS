@@ -81,7 +81,7 @@ public class Application {
                         if (dniAux.equals(clienteAux.getDni())){
                             System.out.println(clienteAux);
                         } else{
-                            System.out.println("No existe ningÃºn cliente con el DNI introducido");
+                            System.out.println("No existe ningun cliente con el DNI introducido");
                         }
                     }
                     break;
@@ -89,10 +89,10 @@ public class Application {
                     System.out.println("Introduzca el modelo de la gafa que quiera buscar");
                     String modeloAux = sc.nextLine();
                     for (Gafa gafaAux : almacenGafas){
-                        if (gafaAux.equals(gafaAux.getModelo())){
+                        if (modeloAux.equals(gafaAux.getModelo())){
                             System.out.println(gafaAux);
                         } else{
-                            System.out.println("No existe ningÃºna gafa con el modelo introducido");
+                            System.out.println("No existe ninguna gafa con el modelo introducido");
                         }
                     }
                     break;
@@ -103,7 +103,7 @@ public class Application {
                         if (dniAux2.equals(opticoAux.getDni())){
                             System.out.println(opticoAux);
                         } else{
-                            System.out.println("No existe ningÃºn Ã³ptico con el DNI introducido");
+                            System.out.println("No existe ningun optico con el DNI introducido");
                         }
                     }
                     break;

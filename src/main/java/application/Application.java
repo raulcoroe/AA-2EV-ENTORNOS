@@ -19,6 +19,9 @@ public class Application {
                 "1. Crear un nuevo cliente\n" +
                 "2. Introducir una nueva gafa\n" +
                 "3. Incorporar a un nuevo optico\n" +
+                "4. Buscar cliente\n" +
+                "5. Buscar gafa\n" +
+                "6. Buscar optico\n" +
                 "x. Salir");
 
         do {
@@ -70,6 +73,39 @@ public class Application {
 
                     Optico optico = new Optico(nombreOptico, apellidoOptico, edadOptico, dniOptico, salario);
                     almacenOpticos.add(optico);
+                    break;
+                case "4":
+                    System.out.println("Introduzca el dni del cliente que quiera buscar");
+                    String dniAux = sc.nextLine();
+                    for (Cliente clienteAux : almacenClientes){
+                        if (dniAux.equals(clienteAux.getDni())){
+                            System.out.println(clienteAux);
+                        } else{
+                            System.out.println("No existe ningÃºn cliente con el DNI introducido");
+                        }
+                    }
+                    break;
+                case "5":
+                    System.out.println("Introduzca el modelo de la gafa que quiera buscar");
+                    String modeloAux = sc.nextLine();
+                    for (Gafa gafaAux : almacenGafas){
+                        if (gafaAux.equals(gafaAux.getModelo())){
+                            System.out.println(gafaAux);
+                        } else{
+                            System.out.println("No existe ningÃºna gafa con el modelo introducido");
+                        }
+                    }
+                    break;
+                case "6":
+                    System.out.println("Introduzca el dni del optico que quiera buscar");
+                    String dniAux2 = sc.nextLine();
+                    for (Cliente opticoAux : almacenClientes){
+                        if (dniAux2.equals(opticoAux.getDni())){
+                            System.out.println(opticoAux);
+                        } else{
+                            System.out.println("No existe ningÃºn Ã³ptico con el DNI introducido");
+                        }
+                    }
                     break;
                 case "X":
                 case "x":

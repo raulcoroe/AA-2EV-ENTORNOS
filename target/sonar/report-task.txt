@@ -1,0 +1,6 @@
+projectKey=org.example:AA-2-EV-ENTORNOS
+serverUrl=http://192.168.1.117
+serverVersion=8.8.0.42792
+dashboardUrl=http://192.168.1.117/dashboard?id=org.example%3AAA-2-EV-ENTORNOS
+ceTaskId=AXiiPrNmJ0QBnHbONiRt
+ceTaskUrl=http://192.168.1.117/api/ce/task?id=AXiiPrNmJ0QBnHbONiRt

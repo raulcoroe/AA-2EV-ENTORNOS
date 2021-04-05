@@ -1,5 +1,6 @@
 package domain;
 
+
 import java.util.Objects;
 
 public class Cliente {
@@ -72,7 +73,14 @@ public class Cliente {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Cliente cliente = (Cliente) o;
-        return edad == cliente.edad && Float.compare(cliente.presuspuesto, presuspuesto) == 0 && Objects.equals(nombre, cliente.nombre) && Objects.equals(apellido, cliente.apellido) && Objects.equals(dni, cliente.dni);
+
+        if (edad != cliente.edad) return false;
+        if (Float.compare(cliente.presuspuesto, presuspuesto) != 0) return false;
+        if (!Objects.equals(nombre, cliente.nombre)) return false;
+        if (!Objects.equals(apellido, cliente.apellido)) return false;
+        return Objects.equals(dni, cliente.dni);
     }
+
 }

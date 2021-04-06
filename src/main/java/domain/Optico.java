@@ -2,29 +2,14 @@ package domain;
 
 import java.util.Objects;
 
-public class Optico {
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private String dni;
+public class Optico extends Persona {
     private float salario;
-    private Gafa gafaVendida;
 
     public Optico(String nombre, String apellido, int edad, String dni, float salario) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.dni = dni;
+        super(nombre, apellido, edad, dni);
         this.salario = salario;
     }
 
-    public Gafa verGafaVendida() {
-        return gafaVendida;
-    }
-
-    public void venderGafa(Gafa gafa) {
-        this.gafaVendida = gafa;
-    }
 
     public float getSalario() {
         return salario;
@@ -82,6 +67,6 @@ public class Optico {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Optico optico = (Optico) o;
-        return edad == optico.edad && Float.compare(optico.salario, salario) == 0 && Objects.equals(nombre, optico.nombre) && Objects.equals(apellido, optico.apellido) && Objects.equals(dni, optico.dni) && Objects.equals(gafaVendida, optico.gafaVendida);
+        return edad == optico.edad && Float.compare(optico.salario, salario) == 0 && Objects.equals(nombre, optico.nombre) && Objects.equals(apellido, optico.apellido) && Objects.equals(dni, optico.dni);
     }
 }

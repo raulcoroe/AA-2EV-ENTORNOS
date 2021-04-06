@@ -1,6 +1,7 @@
 package application;
 
 import domain.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class Optica {
         almacenOpticos = new ArrayList<>();
     }
 
-    public void ejecucion(){
+    public void ejecucion() {
         boolean salir = false;
         do {
             menu();
@@ -42,6 +43,12 @@ public class Optica {
                 case "6":
                     busccarOptico();
                     break;
+                case "7":
+                    compraGafa();
+                    break;
+                case "8":
+                    verGafaComprada();
+                    break;
                 case "X":
                 case "x":
                     salir = true;
@@ -50,7 +57,7 @@ public class Optica {
         } while (!salir);
     }
 
-    public void crearUsuario (){
+    public void crearUsuario() {
         System.out.println("Nombre del cliente");
         String nombreCliente = sc.nextLine();
         System.out.println("Apellido del cliente");
@@ -66,7 +73,7 @@ public class Optica {
         almacenClientes.add(cliente);
     }
 
-    public void introducirGafa(){
+    public void introducirGafa() {
         System.out.println("Referencia del modelo");
         String modelo = sc.nextLine();
         System.out.println("Color de la gafa");
@@ -82,7 +89,7 @@ public class Optica {
         almacenGafas.add(gafa);
     }
 
-    public void incorporarOptico(){
+    public void incorporarOptico() {
         System.out.println("Nombre del optico");
         String nombreOptico = sc.nextLine();
         System.out.println("Apellido del optico");
@@ -98,43 +105,43 @@ public class Optica {
         almacenOpticos.add(optico);
     }
 
-    public void buscarCliente(){
+    public void buscarCliente() {
         System.out.println("Introduzca el dni del cliente que quiera buscar");
         String dniAux = sc.nextLine();
-        for (Cliente clienteAux : almacenClientes){
-            if (dniAux.equals(clienteAux.getDni())){
+        for (Cliente clienteAux : almacenClientes) {
+            if (dniAux.equals(clienteAux.getDni())) {
                 System.out.println(clienteAux);
-            } else{
+            } else {
                 System.out.println("No existe ningun cliente con el DNI introducido");
             }
         }
     }
 
-    public void buscarGafa(){
+    public void buscarGafa() {
         System.out.println("Introduzca el modelo de la gafa que quiera buscar");
         String modeloAux = sc.nextLine();
-        for (Gafa gafaAux : almacenGafas){
-            if (modeloAux.equals(gafaAux.getModelo())){
+        for (Gafa gafaAux : almacenGafas) {
+            if (modeloAux.equals(gafaAux.getModelo())) {
                 System.out.println(gafaAux);
-            } else{
+            } else {
                 System.out.println("No existe ninguna gafa con el modelo introducido");
             }
         }
     }
 
-    public void busccarOptico(){
+    public void busccarOptico() {
         System.out.println("Introduzca el dni del optico que quiera buscar");
         String dniAux2 = sc.nextLine();
-        for (Cliente opticoAux : almacenClientes){
-            if (dniAux2.equals(opticoAux.getDni())){
+        for (Cliente opticoAux : almacenClientes) {
+            if (dniAux2.equals(opticoAux.getDni())) {
                 System.out.println(opticoAux);
-            } else{
+            } else {
                 System.out.println("No existe ningun optico con el DNI introducido");
             }
         }
     }
 
-    public void menu (){
+    public void menu() {
         System.out.println("Elija entre las diferentes opciones:\n" +
                 "1. Crear un nuevo cliente\n" +
                 "2. Introducir una nueva gafa\n" +
@@ -142,7 +149,39 @@ public class Optica {
                 "4. Buscar cliente\n" +
                 "5. Buscar gafa\n" +
                 "6. Buscar optico\n" +
+                "7. Venta de gafa\n" +
+                "8. Ver gafas compradas de un cliente\n" +
                 "x. Salir");
         System.out.println("\t\nSelecciona una opcion");
+    }
+
+    public void verGafaComprada() {
+        System.out.println("Introducir el nombre del cliente del que quiera consultar sus gafas: ");
+        String nombreCliente = sc.nextLine();
+        for (Cliente cliente : almacenClientes) {
+            if (nombreCliente.equals(cliente.getNombre())){
+                System.out.println(cliente.verGafaComprada());
+            }
+        }
+    }
+
+    public void compraGafa() {
+        System.out.println("Introducir el nombre del cliente que quiere comprar la gafa: ");
+        String nombreCliente = sc.nextLine();
+
+        System.out.println("Introducir el modelo de gafa que se quiera comprar: ");
+        String modeloGafa = sc.nextLine();
+
+        for (Cliente cliente : almacenClientes) {
+            for (Gafa gafa : almacenGafas) {
+                if (modeloGafa.equals(gafa.getModelo()) && nombreCliente.equals(cliente.getNombre())) {
+                    if (cliente.getPresuspuesto() >= gafa.getPrecio()) {
+                        cliente.comprarGafa(gafa);
+                    } else {
+                        System.out.println("La gafa se va de presupuesto. Es muy cara.");
+                    }
+                }
+            }
+        }
     }
 }

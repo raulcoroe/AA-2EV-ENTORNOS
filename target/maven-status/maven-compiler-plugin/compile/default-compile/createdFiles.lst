@@ -1,4 +1,5 @@
 domain\Gafa.class
+domain\Persona.class
 domain\Optico.class
 domain\Cliente.class
 application\Application.class

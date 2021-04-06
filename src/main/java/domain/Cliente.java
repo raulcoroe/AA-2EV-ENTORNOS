@@ -3,19 +3,21 @@ package domain;
 
 import java.util.Objects;
 
-public class Cliente {
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private String dni;
+public class Cliente extends Persona {
     private float presuspuesto;
+    private Gafa gafaComprada;
 
     public Cliente(String nombre, String apellido, int edad, String dni, float presuspuesto) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.dni = dni;
+        super(nombre, apellido, edad, dni);
         this.presuspuesto = presuspuesto;
+    }
+
+    public Gafa verGafaComprada() {
+        return gafaComprada;
+    }
+
+    public void comprarGafa(Gafa gafaComprada) {
+        this.gafaComprada = gafaComprada;
     }
 
     public String getNombre() {

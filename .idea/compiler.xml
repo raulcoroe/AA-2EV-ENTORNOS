@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AA-2EV-ENTORNOS" />
         <module name="AA-2-EV-ENTORNOS" />
       </profile>
     </annotationProcessing>
